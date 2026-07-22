@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>Alpha Arena — Mochatrade Infographic Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #080C14;
+  --bg2:      #0B0F19;
+  --slate:    #0F1629;
+  --slate2:   #141C35;
+  --card:     rgba(255,255,255,0.04);
+  --border:   rgba(255,255,255,0.08);
+  --emerald:  #10B981;
+  --em-glow:  rgba(16,185,129,0.15);
+  --em-dim:   rgba(16,185,129,0.6);
+  --white:    #F8FAFC;
+  --mid:      #94A3B8;
+  --dim:      #475569;
+  --risk:     #F87171;
+  --risk-bg:  rgba(248,113,113,0.08);
+  --wabg:     #0D1621;
+  --wahdr:    #1A7A44;
+  --bubble:   #1A4D35;
+  --gold:     #F59E0B;
+}
+
+html, body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── BACKGROUND GRID ─────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(16,185,129,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,185,129,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient glow top-center */
+body::after {
+  content: '';
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(16,185,129,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.poster {
+  position: relative;
+  z-index: 1;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* ── TOP BAR ─────────────────────────────────────────────── */
+.topbar {
+  height: 54px;
+  background: rgba(16,185,129,0.06);
+  border-bottom: 1px solid rgba(16,185,129,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  flex-shrink: 0;
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.logo-badge {
+  background: var(--emerald);
+  color: #000;
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  padding: 4px 10px;
+  text-transform: uppercase;
+}
+.topbar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+.topbar-meta {
+  font-size: 10px;
+  color: var(--dim);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.status-dot {
+  width: 7px; height: 7px;
+  background: var(--emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--emerald);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.status-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--emerald);
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── MAIN BODY ───────────────────────────────────────────── */
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 560px 1fr 520px;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* ── COLUMN DIVIDERS ─────────────────────────────────────── */
+.col {
+  padding: 28px 32px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+.col:last-child { border-right: none; }
+
+/* ── COL HEADERS ─────────────────────────────────────────── */
+.col-hdr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.col-hdr-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--emerald);
+  background: var(--em-glow);
+  border: 1px solid rgba(16,185,129,0.3);
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.col-hdr-text {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--emerald);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.col-hdr-sub {
+  font-size: 10px;
+  color: var(--dim);
+  font-family: 'JetBrains Mono', monospace;
+  margin-left: auto;
+}
+
+/* ── GLASS CARD ──────────────────────────────────────────── */
+.glass {
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 16px 18px;
+  flex-shrink: 0;
+}
+.glass.em {
+  border-color: rgba(16,185,129,0.3);
+  background: rgba(16,185,129,0.04);
+}
+.glass.risk {
+  border-color: rgba(248,113,113,0.25);
+  background: var(--risk-bg);
+}
+
+/* ── WHATSAPP MOCKUP ─────────────────────────────────────── */
+.wa-wrap {
+  flex-shrink: 0;
+}
+.wa-phone {
+  background: var(--wabg);
+  border: 1px solid #25D366;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.wa-hdr {
+  background: var(--wahdr);
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wa-avatar {
+  width: 30px; height: 30px;
+  background: var(--emerald);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 12px; color: #000;
+  flex-shrink: 0;
+}
+.wa-hdr-info strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.wa-hdr-info span {
+  font-size: 9.5px;
+  color: rgba(255,255,255,0.6);
+}
+.wa-body {
+  padding: 12px 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wa-time {
+  text-align: center;
+  font-size: 9.5px;
+  color: var(--dim);
+  font-family: 'JetBrains Mono', monospace;
+}
+.wa-bubble {
+  background: var(--bubble);
+  border-radius: 3px 10px 10px 3px;
+  padding: 9px 13px;
+  max-width: 92%;
+  position: relative;
+}
+.wa-bubble p {
+  font-size: 12.5px;
+  color: var(--white);
+  line-height: 1.5;
+}
+.wa-bubble .em { color: var(--emerald); font-weight: 700; }
+.wa-bubble .note {
+  font-size: 10px;
+  color: #25D366;
+  margin-top: 5px;
+  font-weight: 500;
+}
+.wa-bubble .ts {
+  font-size: 9px;
+  color: rgba(255,255,255,0.35);
+  text-align: right;
+  margin-top: 3px;
+}
+.wa-cta {
+  display: block;
+  background: var(--emerald);
+  color: #000;
+  font-weight: 800;
+  font-size: 13px;
+  text-align: center;
+  padding: 10px 16px;
+  margin: 10px 12px 12px;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+}
+.wa-comp {
+  padding: 8px 12px;
+  background: rgba(96,165,250,0.08);
+  border-top: 1px solid rgba(96,165,250,0.15);
+  font-size: 9.5px;
+  color: #60A5FA;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ── ALLOCATION CARDS ────────────────────────────────────── */
+.alloc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.alloc-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  text-align: center;
+}
+.alloc-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--emerald);
+  display: block;
+  text-shadow: 0 0 20px rgba(16,185,129,0.4);
+}
+.alloc-unit {
+  font-size: 9.5px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-top: 2px;
+}
+.alloc-sub {
+  font-size: 10px;
+  color: var(--mid);
+  margin-top: 5px;
+  line-height: 1.3;
+}
+
+/* ── COL 2: BURN & REFILL LOOP ───────────────────────────── */
+.loop-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+.loop-title span { color: var(--emerald); }
+.loop-sub {
+  font-size: 11px;
+  color: var(--mid);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.loop-diagram {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.loop-step {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  position: relative;
+}
+.loop-step:first-child { border-radius: 6px 6px 0 0; }
+.loop-step:last-child {
+  border-radius: 0 0 6px 6px;
+  border-bottom: 1px solid var(--border);
+}
+.loop-step.highlight {
+  background: var(--em-glow);
+  border-color: rgba(16,185,129,0.35);
+}
+.step-circle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--em-glow);
+  border: 1.5px solid var(--emerald);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--emerald);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.step-circle.red {
+  background: var(--risk-bg);
+  border-color: var(--risk);
+  color: var(--risk);
+}
+.step-text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+.step-text p {
+  font-size: 11.5px;
+  color: var(--mid);
+  line-height: 1.4;
+}
+.step-text .tag {
+  display: inline-block;
+  background: var(--em-glow);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: var(--emerald);
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 6px;
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.step-text .tag.red {
+  background: var(--risk-bg);
+  border-color: rgba(248,113,113,0.3);
+  color: var(--risk);
+}
+
+.loop-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  position: relative;
+}
+.loop-arrow::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--emerald), transparent);
+}
+.loop-arrow svg {
+  position: relative;
+  z-index: 1;
+  fill: var(--emerald);
+}
+
+.loop-result {
+  background: var(--em-glow);
+  border: 1.5px solid rgba(16,185,129,0.4);
+  border-radius: 6px;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.result-kpi strong {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--emerald);
+  text-shadow: 0 0 20px rgba(16,185,129,0.5);
+}
+.result-kpi span {
+  font-size: 9px;
+  color: var(--mid);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ── COL 3: METRICS ──────────────────────────────────────── */
+.metrics-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.metric-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 13px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+.metric-card.em { border-color: rgba(16,185,129,0.3); background: var(--em-glow); }
+.metric-lbl {
+  font-size: 10px;
+  color: var(--mid);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.metric-from {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--dim);
+  text-decoration: line-through;
+  display: block;
+}
+.metric-to {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--emerald);
+  display: block;
+  text-shadow: 0 0 16px rgba(16,185,129,0.4);
+}
+.metric-badge {
+  background: var(--em-glow);
+  border: 1px solid rgba(16,185,129,0.35);
+  color: var(--emerald);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+.sensitivity-box {
+  background: rgba(245,158,11,0.07);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-left: 3px solid var(--gold);
+  padding: 10px 14px;
+  flex-shrink: 0;
+}
+.sensitivity-box .sens-lbl {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.sensitivity-box p {
+  font-size: 11px;
+  color: #FDE68A;
+  line-height: 1.5;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.risk-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.risk-hdr {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--risk);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(248,113,113,0.2);
+  flex-shrink: 0;
+}
+.risk-item {
+  background: var(--risk-bg);
+  border: 1px solid rgba(248,113,113,0.15);
+  border-left: 2px solid var(--risk);
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+.risk-item strong {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--risk);
+  display: block;
+  margin-bottom: 3px;
+}
+.risk-item p {
+  font-size: 10.5px;
+  color: #FCA5A5;
+  line-height: 1.4;
+}
+
+/* ── BOTTOM BAR ──────────────────────────────────────────── */
+.bottombar {
+  height: 36px;
+  border-top: 1px solid var(--border);
+  background: var(--slate);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  flex-shrink: 0;
+}
+.bottombar-left {
+  font-size: 9.5px;
+  color: var(--dim);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.8px;
+}
+.bottombar-right {
+  font-size: 9.5px;
+  color: var(--dim);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.bottombar-right .em { color: var(--emerald); }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="logo-badge">Mochatrade</div>
+      <div class="topbar-title">PROJECT ALPHA ARENA &nbsp;—&nbsp; Market Makers Round 2 Case Brief</div>
+      <div class="topbar-meta">YC SPRING 2026 &nbsp;·&nbsp; STRATEGIC REACTIVATION FRAMEWORK</div>
+    </div>
+    <div class="topbar-right">
+      <div class="status-text">
+        <div class="status-dot"></div>
+        SIMULATION ENV ACTIVE
+      </div>
+      <div style="font-size:10px;color:var(--dim);font-family:monospace">Submitted by: Ridhi Jain &nbsp;|&nbsp; Solo Participant</div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main">
+
+    <!-- ═══ COL 1: THE TRIGGER ═══ -->
+    <div class="col">
+      <div class="col-hdr">
+        <div class="col-hdr-num">01</div>
+        <div class="col-hdr-text">The Trigger</div>
+        <div class="col-hdr-sub">WhatsApp → Webview</div>
+      </div>
+
+      <!-- WhatsApp Mock -->
+      <div class="wa-wrap">
+        <div class="wa-phone">
+          <div class="wa-hdr">
+            <div class="wa-avatar">M</div>
+            <div class="wa-hdr-info">
+              <strong>Mochatrade &nbsp;✓</strong>
+              <span>Official Verified Business</span>
+            </div>
+          </div>
+          <div class="wa-body">
+            <div class="wa-time">TODAY &nbsp;·&nbsp; 09:58 AM</div>
+            <div class="wa-bubble">
+              <p>Hey Ridhi, your <span class="em">Alpha Pass</span> is live.</p>
+            </div>
+            <div class="wa-bubble">
+              <p><span class="em">$10,000</span> virtual USDT loaded. Trade <span class="em">TSLA / NVDA / AAPL</span> perps at <span class="em">50×</span> leverage for <span class="em">72 hours</span>. No app download. No KYC for virtual funds.</p>
+              <p class="note">⚠ Simulated env only. No real capital at risk.</p>
+              <div class="ts">09:58 ✓✓</div>
+            </div>
+          </div>
+          <a class="wa-cta">Enter Alpha Arena &nbsp;→</a>
+          <div class="wa-comp">FIU-IND compliant KYC activates only upon real-money deposit conversion.</div>
+        </div>
+      </div>
+
+      <!-- Allocation cards -->
+      <div class="alloc-grid">
+        <div class="alloc-card">
+          <span class="alloc-val">$10K</span>
+          <span class="alloc-unit">Virtual USDT</span>
+          <div class="alloc-sub">Allocated per participant. Zero real capital deployed.</div>
+        </div>
+        <div class="alloc-card">
+          <span class="alloc-val">50×</span>
+          <span class="alloc-unit">Max Leverage</span>
+          <div class="alloc-sub">TSLA · NVDA · AAPL live Hyperliquid orderbook.</div>
+        </div>
+        <div class="alloc-card">
+          <span class="alloc-val">72h</span>
+          <span class="alloc-unit">Arena Window</span>
+          <div class="alloc-sub">Time-boxed to mirror F&O contract expiry psychology.</div>
+        </div>
+        <div class="alloc-card">
+          <span class="alloc-val">&lt;10s</span>
+          <span class="alloc-unit">Time to Trade</span>
+          <div class="alloc-sub">Magic link → webview → perp order placed in under 10 seconds.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══ COL 2: THE ENGINE (BURN & REFILL LOOP) ═══ -->
+    <div class="col" style="padding: 28px 36px;">
+      <div class="col-hdr">
+        <div class="col-hdr-num">02</div>
+        <div class="col-hdr-text">The Engine</div>
+        <div class="col-hdr-sub">Viral Acquisition Loop</div>
+      </div>
+
+      <div>
+        <div class="loop-title">"Burn &amp; Refill" — <span>Zero-CAC Acquisition Loop</span></div>
+        <div class="loop-sub">Turning paper trading liquidation into a self-funded peer distribution engine</div>
+      </div>
+
+      <div class="loop-diagram">
+        <div class="loop-step">
+          <div class="step-circle">1</div>
+          <div class="step-text">
+            <strong>Account Liquidation Event</strong>
+            <p>User's $10,000 virtual balance hits $0 USDT. Standard platforms eject the user. Mochatrade activates the Refill Engine instead.</p>
+            <span class="tag red">Trigger Point</span>
+          </div>
+        </div>
+
+        <div class="loop-arrow">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 0L6 8M2 5L6 9L10 5"/></svg>
+        </div>
+
+        <div class="loop-step">
+          <div class="step-circle">2</div>
+          <div class="step-text">
+            <strong>Auto-Generated Referral Link</strong>
+            <p>Engine instantly generates a unique, time-bound WhatsApp invite link. Delivered to the liquidated user in-app and via chat notification within 3 seconds.</p>
+            <span class="tag">WhatsApp API</span>
+          </div>
+        </div>
+
+        <div class="loop-arrow">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 0L6 8M2 5L6 9L10 5"/></svg>
+        </div>
+
+        <div class="loop-step">
+          <div class="step-circle">3</div>
+          <div class="step-text">
+            <strong>Peer Verification via SMS OTP</strong>
+            <p>Invited friend completes SMS OTP verification. Device fingerprinting validates unique new participant. Prevents Sybil / bot farming at the infrastructure layer.</p>
+            <span class="tag">Redis Rate-Limit</span>
+            <span class="tag">Device FP</span>
+          </div>
+        </div>
+
+        <div class="loop-arrow">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 0L6 8M2 5L6 9L10 5"/></svg>
+        </div>
+
+        <div class="loop-step highlight">
+          <div class="step-circle">4</div>
+          <div class="step-text">
+            <strong>$5,000 Margin Refill Granted</strong>
+            <p>Referrer's account instantly credited with $5,000 virtual USDT margin. Max 3 refills per user per 72-hour window hard-capped to prevent infinite loop gaming.</p>
+            <span class="tag">Hard Cap: 3× / 72h</span>
+          </div>
+        </div>
+
+        <div class="loop-arrow">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 0L6 8M2 5L6 9L10 5"/></svg>
+        </div>
+
+        <div class="loop-step">
+          <div class="step-circle" style="font-size:10px">↺</div>
+          <div class="step-text">
+            <strong>New User Enters Arena → Loop Restarts</strong>
+            <p>Each verified invitee becomes an active arena participant — and a potential future liquidation event that triggers another referral cycle.</p>
+            <span class="tag">K-Factor Compound</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="loop-result">
+        <div class="result-kpi">
+          <strong>1.45</strong>
+          <span>K-Factor Target</span>
+        </div>
+        <div class="result-kpi">
+          <strong>₹240</strong>
+          <span>Target CAC</span>
+        </div>
+        <div class="result-kpi">
+          <strong>80%</strong>
+          <span>CAC Reduction</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══ COL 3: METRICS & CONTROLS ═══ -->
+    <div class="col">
+      <div class="col-hdr">
+        <div class="col-hdr-num">03</div>
+        <div class="col-hdr-text">The Math</div>
+        <div class="col-hdr-sub">Unit Economics + Risk</div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card em">
+          <div>
+            <div class="metric-lbl">Customer Acquisition Cost</div>
+            <span class="metric-from">₹1,500 baseline</span>
+            <span class="metric-to">₹240</span>
+          </div>
+          <div class="metric-badge">−80%</div>
+        </div>
+        <div class="metric-card em">
+          <div>
+            <div class="metric-lbl">Viral Coefficient (K-Factor)</div>
+            <span class="metric-from">0.20 passive waitlist</span>
+            <span class="metric-to">1.45</span>
+          </div>
+          <div class="metric-badge">+7.25×</div>
+        </div>
+        <div class="metric-card">
+          <div>
+            <div class="metric-lbl">Waitlist Re-engagement Rate</div>
+            <span class="metric-from">8–12% email baseline</span>
+            <span class="metric-to">38–45%</span>
+          </div>
+          <div class="metric-badge">~4×</div>
+        </div>
+        <div class="metric-card">
+          <div>
+            <div class="metric-lbl">Day-1 Deposit Conversion</div>
+            <span class="metric-from">3–5% baseline</span>
+            <span class="metric-to">~18%</span>
+          </div>
+          <div class="metric-badge">~4.5×</div>
+        </div>
+      </div>
+
+      <div class="sensitivity-box">
+        <div class="sens-lbl">Sensitivity Check</div>
+        <p>At K=0.75 (conservative): CAC &lt; ₹480 — still a ~68% drop vs. ₹1,500 baseline. Model remains cash-flow positive under downside assumptions.</p>
+      </div>
+
+      <div class="risk-section">
+        <div class="risk-hdr">Risk Playbook — 4 Controls</div>
+        <div class="risk-item">
+          <strong>SEBI / RBI / FIU-IND Compliance</strong>
+          <p>Persistent "Simulated Environment" badge. All copy: "No real capital at risk." Full KYC only on real-money deposit.</p>
+        </div>
+        <div class="risk-item">
+          <strong>Bot & Fraud Prevention</strong>
+          <p>Device fingerprinting + SMS OTP. Redis rate-limit. 3-refill hard cap. Margin resets on multi-account detection.</p>
+        </div>
+        <div class="risk-item">
+          <strong>Over-Gamification [NBER 2023]</strong>
+          <p>Leaderboard framed as "skill qualification." Guardrails on risk-display. No wealth-projection framing permitted.</p>
+        </div>
+        <div class="risk-item">
+          <strong>Infrastructure Reliability</strong>
+          <p>Load-test at 10× peak concurrency. Hyperliquid surcharge rebated by Mochatrade — not zero DEX gas costs implied.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+
+  <!-- BOTTOM BAR -->
+  <div class="bottombar">
+    <div class="bottombar-left">
+      [1] APAC neo-brokerage conversion benchmarks (Robinhood, Webull, Upstox) &nbsp;·&nbsp;
+      [2] Li et al. — simulator-to-live conversion research &nbsp;·&nbsp;
+      [3] Heidhues &amp; Koszegi, NBER 2023 &nbsp;·&nbsp;
+      * All targets are internal projections / assumptions
+    </div>
+    <div class="bottombar-right">
+      <span>ZERO EXTERNAL TOOL WATERMARKS</span>
+      <span>·</span>
+      <span class="em">PROJECT ALPHA ARENA — MOCHATRADE MKT MAKERS R2 — RIDHI JAIN</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
